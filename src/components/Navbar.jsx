@@ -14,7 +14,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('/api/user/logout', {}, {
+      await axios.post('https://bankinformationmanagementsystembackend.onrender.com/api/user/logout', {}, {
         withCredentials: true
       });
       alert("Successfully Logout")
@@ -27,7 +27,7 @@ const Navbar = () => {
   useEffect(() => {
     const fetchuser = async () => {
       try {
-        const userRes = await axios.get('/api/user/me',
+        const userRes = await axios.get('https://bankinformationmanagementsystembackend.onrender.com/api/user/me',
           {
             withCredentials: true
           });

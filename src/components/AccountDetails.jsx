@@ -18,7 +18,7 @@ const AccountDetails = (props) => {
   const handleUpdate = async () => {
     console.log("update ", form)
     try {
-      await axios.patch(`http://localhost:3000/api/bank/${account._id}`, form, {
+      await axios.patch(`https://bankinformationmanagementsystembackend.onrender.com/api/bank/${account._id}`, form, {
         withCredentials: true,
       });
       setIsEditing(false);
@@ -30,7 +30,7 @@ const AccountDetails = (props) => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:3000/api/bank/${account._id}`, {
+      await axios.delete(`https://bankinformationmanagementsystembackend.onrender.com/api/bank/${account._id}`, {
         withCredentials: true,
       });
       alert("Account deleted");
