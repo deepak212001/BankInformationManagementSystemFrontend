@@ -11,11 +11,11 @@ const Login = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
+const url='https://bankinformationmanagementsystembackend.onrender.com'
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://bankinformationmanagementsystembackend.onrender.com/api/user/login', formData, {
+      const res = await axios.post(`${url}/api/user/login`, formData, {
         withCredentials: true
       });
       setMessage("Login successful!");
@@ -33,7 +33,7 @@ const Login = () => {
   useEffect(() => {
     const fetchuser = async () => {
       try {
-        const userRes = await axios.get('https://bankinformationmanagementsystembackend.onrender.com/api/user/me',
+        const userRes = await axios.get(`${url}/api/user/me`,
           {
             withCredentials: true
           });

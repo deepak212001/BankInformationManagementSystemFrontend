@@ -16,13 +16,13 @@ const Dashboard = () => {
   });
   const [selectedAccount, setSelectedAccount] = useState(null);
   const [model, setModel] = useState(false)
-
+  const url='https://bankinformationmanagementsystembackend.onrender.com'
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchDashboard = async () => {
       try {
-        const userRes = await axios.get('https://bankinformationmanagementsystembackend.onrender.com/api/user/me',
+        const userRes = await axios.get(`${url}/api/user/me`,
           {
             withCredentials: true
           });
@@ -49,7 +49,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchAcc = async () => {
       console.log("user ", user)
-      const bankRes = await axios.get('/api/bank/', {
+      const bankRes = await axios.get(`${url}/api/bank/`, {
         withCredentials: true
       });
       // console.log("Bank Accounts:", bankRes.data);
@@ -61,11 +61,11 @@ const Dashboard = () => {
   const handleAddAccount = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://bankinformationmanagementsystembackend.onrender.com/api/bank/add', newAccount, {
+      const res = await axios.post(`${url}/api/bank/add`, newAccount, {
         withCredentials: true
       });
 
-      const bankRes = await axios.get('https://bankinformationmanagementsystembackend.onrender.com/api/bank/', {
+      const bankRes = await axios.get(`${url}/api/bank/`, {
         withCredentials: true
       });
       setAccounts(bankRes.data.bankAccounts);

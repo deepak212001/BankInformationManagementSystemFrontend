@@ -10,6 +10,8 @@ const AccountDetails = (props) => {
   const [isEditing, setIsEditing] = useState(false);
   const [form, setForm] = useState({});
 
+  const url='https://bankinformationmanagementsystembackend.onrender.com'
+  // const url='http://localhost:3000'
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -18,7 +20,7 @@ const AccountDetails = (props) => {
   const handleUpdate = async () => {
     console.log("update ", form)
     try {
-      await axios.patch(`https://bankinformationmanagementsystembackend.onrender.com/api/bank/${account._id}`, form, {
+      await axios.patch(`${url}/api/bank/${account._id}`, form, {
         withCredentials: true,
       });
       setIsEditing(false);
@@ -30,7 +32,7 @@ const AccountDetails = (props) => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`https://bankinformationmanagementsystembackend.onrender.com/api/bank/${account._id}`, {
+      await axios.delete(`${url}/api/bank/${account._id}`, {
         withCredentials: true,
       });
       alert("Account deleted");

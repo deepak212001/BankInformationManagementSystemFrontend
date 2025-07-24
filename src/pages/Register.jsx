@@ -11,7 +11,7 @@ const Register = () => {
   });
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
-
+  const url = 'https://bankinformationmanagementsystembackend.onrender.com'
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -19,7 +19,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://bankinformationmanagementsystembackend.onrender.com/api/user/register', formData, {
+      const res = await axios.post(`${url}/api/user/register`, formData, {
         withCredentials: true
       });
       setMessage("Registered successfully! Please login.");
@@ -37,7 +37,7 @@ const Register = () => {
   useEffect(() => {
     const fetchuser = async () => {
       try {
-        const userRes = await axios.get('https://bankinformationmanagementsystembackend.onrender.com/api/user/me',
+        const userRes = await axios.get(`${url}/api/user/me`,
           {
             withCredentials: true
           });

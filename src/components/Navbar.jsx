@@ -11,10 +11,10 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   // console.log("location.pathname", location.pathname);
-
+  const url='https://bankinformationmanagementsystembackend.onrender.com'
   const handleLogout = async () => {
     try {
-      await axios.post('https://bankinformationmanagementsystembackend.onrender.com/api/user/logout', {}, {
+      await axios.post(`${url}/api/user/logout`, {}, {
         withCredentials: true
       });
       alert("Successfully Logout")
@@ -27,7 +27,7 @@ const Navbar = () => {
   useEffect(() => {
     const fetchuser = async () => {
       try {
-        const userRes = await axios.get('https://bankinformationmanagementsystembackend.onrender.com/api/user/me',
+        const userRes = await axios.get(`${url}/api/user/me`,
           {
             withCredentials: true
           });

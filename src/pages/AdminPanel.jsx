@@ -10,21 +10,21 @@ const AdminPanel = () => {
   const [loading, setLoading] = useState(true);
   const [searchUserTerm, setSearchUserTerm] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
-
+  const url = 'https://bankinformationmanagementsystembackend.onrender.com'
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAdminData = async () => {
-      const curUser = await axios.get('https://bankinformationmanagementsystembackend.onrender.com/api/user/me', {
+      const curUser = await axios.get(`${url}/api/user/me`, {
         withCredentials: true
       });
       console.log(curUser)
       try {
-        const usersRes = await axios.get('https://bankinformationmanagementsystembackend.onrender.com/api/user/all', {
+        const usersRes = await axios.get(`${url}/api/user/all`, {
           withCredentials: true
         });
         setUsers(usersRes.data);
-        const bankRes = await axios.get('https://bankinformationmanagementsystembackend.onrender.com/api/bank/all', {
+        const bankRes = await axios.get(`${url}/api/bank/all`, {
           withCredentials: true
         });
         setBankAccounts(bankRes.data.data);
