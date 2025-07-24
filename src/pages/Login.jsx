@@ -11,7 +11,7 @@ const Login = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-const url='https://bankinformationmanagementsystembackend.onrender.com'
+  const url = 'https://bankinformationmanagementsystembackend.onrender.com'
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
@@ -70,6 +70,30 @@ const url='https://bankinformationmanagementsystembackend.onrender.com'
           />
           <button type="submit">Login</button>
           <Link to="/register"><button type="submit">Sign- Up</button></Link>
+          <div>
+            <table>
+              <thead>
+                <td>Role</td>
+                <td>email</td>
+                <td>password</td>
+              </thead>
+              <tbody>
+                <td>Admin</td>
+                <td>deepak@yadav.com</td>
+                <td>123456789</td>
+              </tbody>
+              <tbody>
+                <td>User</td>
+                <td>tarun@singh.com</td>
+                <td>123456789</td>
+              </tbody>
+              <tbody>
+                <td>User</td>
+                <td>sumit@gmail.com</td>
+                <td>123456789</td>
+              </tbody>
+            </table>
+          </div>
         </form>
       </div>
     </>
