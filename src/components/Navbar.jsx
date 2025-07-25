@@ -11,7 +11,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   // console.log("location.pathname", location.pathname);
-  const url='https://bankinformationmanagementsystembackend.onrender.com'
+  const url = 'https://bankinformationmanagementsystembackend.onrender.com'
   const handleLogout = async () => {
     try {
       await axios.post(`${url}/api/user/logout`, {}, {
@@ -45,7 +45,7 @@ const Navbar = () => {
   useEffect(() => {
     setShowAdmin(location.pathname === "/dashboard");
     setDash(location.pathname === "/admin");
-    setLogout(location.pathname !== "/login" && location.pathname !== "/register");
+    setLogout(!(location.pathname === "/login" || location.pathname === "/register"));
   }, [location.pathname]);
 
 
