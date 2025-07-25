@@ -45,7 +45,7 @@ const Navbar = () => {
   useEffect(() => {
     setShowAdmin(location.pathname === "/dashboard");
     setDash(location.pathname === "/admin");
-    setLogout(!(location.pathname === "/login" || location.pathname === "/register"));
+    setLogout(!(location.pathname === "/" || location.pathname === "/login" || location.pathname === "/register"));
   }, [location.pathname]);
 
 
